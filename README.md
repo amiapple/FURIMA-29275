@@ -37,14 +37,11 @@ Things you may want to cover:
 | first_name_kana   | string | null: false |
 | family_name_kana   | string | null: false |
 | birthday   | data | null: false |
-| user_id  | string | null: false |
 
 ### Association
 
 - has_many :products
 - has_many :comments
-- has_one :credit_card
-- has_one :profile
 
 ## products テーブル
 
@@ -52,19 +49,18 @@ Things you may want to cover:
 | ------------ | ------ | ----------- |
 | name         | string | null: false |
 | price        | integer | null: false |
-| category     | string | null: false |
-| bland        | string | null: false |
+| category     | integer | null: false |
+| bland        | integer | null: false |
 | introduction | text | null: false |
 | condition    | integer | null: false |
-| postage      | integer | null: false |
-| shipping_area| integer | null: false |
-| preparation_day | integer | null: false |
+| postage      | integer | null: false,foreign_key:true |
+| shipping_area| integer | null: false,foreign_key:true |
+| preparation_day | integer | null: false,foreign_key:true |
 
 ### Association
 
 - has_many :comments
 - has_many :product_image
-- belongs_to :category
 - belongs_to :user
 
 ## comments テーブル
@@ -84,11 +80,30 @@ Things you may want to cover:
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| user_id  | string | null: false |
-| card_id  | string | null: false |
-| item_id  | string | null: false |
+| user_id  | integer | null: false,foreign_key:true |
+| item_id  | integer | null: false,foreign_key:true |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :product
+
+## sending_destinations テーブル
+
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| user | references | null: false,foreign_key:true |
+| destination_first_name | string | null: false |
+| destination_family_name  | string | null: false |
+| destination_first_name_kana | string | null: false |
+| destination_family_name_kana | string | null: false |
+| post_code | integer | null: false |
+| prefecture_code | integer | null: false |
+| city | string | null: false |
+| building_name | string | null: false |
+| phone_number | string | null: false |
+
+
+### Association
+
 - belongs_to :product
