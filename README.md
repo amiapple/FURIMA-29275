@@ -61,7 +61,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :product_image
 - belongs_to :category
-- belongs_to :users
+- belongs_to :user
 
 ## comments テーブル
 
@@ -73,8 +73,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
-- belongs_to :products
+- belongs_to :user
+- belongs_to :product
 
 ## profiles テーブル
 
@@ -89,7 +89,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 
 ## credit_card テーブル
 
@@ -100,7 +100,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 
 ## products_images テーブル
 
@@ -111,7 +111,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :products
+- belongs_to :product
 
 ## categories テーブル
 
@@ -121,4 +121,4 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :products
+- has_many :product
