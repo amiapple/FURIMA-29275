@@ -53,14 +53,15 @@ Things you may want to cover:
 | bland        | integer | null: false |
 | introduction | text | null: false |
 | condition    | integer | null: false |
-| postage      | integer | null: false,foreign_key:true |
-| shipping_area| integer | null: false,foreign_key:true |
-| preparation_day | integer | null: false,foreign_key:true |
+| postage      | integer | null: false |
+| shipping_area| integer | null: false |
+| preparation_day | integer | null: false |
+| user_id | integer | null: false,foreign_key:true |
 
 ### Association
 
-- has_many :comments
-- has_many :product_image
+- has_many :comments, dependent: :destroy
+- has_many :product_image, dependent: :destroy
 - belongs_to :user
 
 ## comments テーブル
@@ -70,6 +71,18 @@ Things you may want to cover:
 | comment   | string | null: false |
 | user    | string | null: false |
 | item    | string | null: false |
+
+### Association
+
+- belongs_to :user
+- belongs_to :product
+
+##  transactionテーブル
+
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| user_id  | integer | null: false,foreign_key:true |
+| item_id  | integer | null: false,foreign_key:true |
 
 ### Association
 
@@ -93,17 +106,9 @@ Things you may want to cover:
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | user | references | null: false,foreign_key:true |
-| destination_first_name | string | null: false |
-| destination_family_name  | string | null: false |
-| destination_first_name_kana | string | null: false |
-| destination_family_name_kana | string | null: false |
-| post_code | integer | null: false |
+| post_code | string | null: false |
 | prefecture_code | integer | null: false |
 | city | string | null: false |
-| building_name | string | null: false |
+| house_number | string | null: false |
+| building_name | string |  |
 | phone_number | string | null: false |
-
-
-### Association
-
-- belongs_to :product
