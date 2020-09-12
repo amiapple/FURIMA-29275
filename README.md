@@ -63,7 +63,7 @@ Things you may want to cover:
 
 - has_many :comments, dependent: :destroy
 - belongs_to :user
-- has_one :product_purchases
+- has_one :product_purchase
 
 ## comments テーブル
 
@@ -89,6 +89,7 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :product
+- has_one :product_purchase
 
 ## sending_destinations テーブル
 
@@ -104,4 +105,4 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :product
+- belongs_to :product_purchase
