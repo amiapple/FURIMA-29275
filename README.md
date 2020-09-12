@@ -42,6 +42,7 @@ Things you may want to cover:
 
 - has_many :products
 - has_many :comments
+- has_many :product_purchases
 
 ## products テーブル
 
@@ -61,8 +62,8 @@ Things you may want to cover:
 ### Association
 
 - has_many :comments, dependent: :destroy
-- has_many :product_image, dependent: :destroy
 - belongs_to :user
+- has_one :product_purchases
 
 ## comments テーブル
 
@@ -71,18 +72,6 @@ Things you may want to cover:
 | comment   | string | null: false |
 | user    | string | null: false |
 | item    | string | null: false |
-
-### Association
-
-- belongs_to :user
-- belongs_to :product
-
-##  transactionテーブル
-
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| user_id  | integer | null: false,foreign_key:true |
-| item_id  | integer | null: false,foreign_key:true |
 
 ### Association
 
@@ -105,10 +94,14 @@ Things you may want to cover:
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| user | references | null: false,foreign_key:true |
+| product_purchase | references | null: false,foreign_key:true |
 | post_code | string | null: false |
 | prefecture_code | integer | null: false |
 | city | string | null: false |
 | house_number | string | null: false |
 | building_name | string |  |
 | phone_number | string | null: false |
+
+### Association
+
+- belongs_to :product
