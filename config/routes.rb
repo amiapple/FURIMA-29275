@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # localhost::3000にアクセスした時にitems#indexが作動するように設定
   root to: "items#index"
   resources :users, only: [:edit, :update]
+  resources :products, only: [:edit, :create]
   # itemsコントローラーを作成し、indexアクションを定義
   
   # localhost::3000にアクセスした時にしっかりとトップページが開くか確認
