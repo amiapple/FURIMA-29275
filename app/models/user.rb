@@ -31,6 +31,6 @@ class User < ApplicationRecord
     with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/,
   },presence: true
 
-  validates :birth_day, presence: true
+  validates :birthday, presence: true
 
 end
