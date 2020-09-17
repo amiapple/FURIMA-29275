@@ -11,7 +11,7 @@ class Product < ApplicationRecord
   validates :preparation_day, presence:true
 
   validates_associated :item_imges
-  validates :item_imgs, presence:true
+  validates :item_imges, presence:true
 
   enum item_condition: {
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,
