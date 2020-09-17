@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
   end
-  
+
   def edit
   end
 
@@ -13,6 +13,12 @@ class ProductsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def products_params
+    params.require(:products).permit(:image).merge(user_id: current_user.id)
   end
 
 end
