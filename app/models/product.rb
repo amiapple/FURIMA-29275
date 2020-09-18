@@ -41,6 +41,6 @@ class Product < ApplicationRecord
   belongs_to :user, foreign_key: 'user_id',optional:true 
   has_many :item_imges, inverse_of: :item,dependent: :destroy
   has_many :comments, dependent: :destroy
-  accepts_nested_attributes_for :item_imgs, allow_destroy: true
+  
 
-
+end

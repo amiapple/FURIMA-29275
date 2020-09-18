@@ -8,7 +8,7 @@
     <%= form_with model: @products, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%= render 'shared/error_messages', model:@products f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
@@ -23,7 +23,6 @@
         </p>
         <%= f.file_field :image, id:"item-image" %>
       </div>
-      <%= image_tag message.image, class: 'item-image' %>
     </div>
     <%# /出品画像 %>
     <%# 商品名と商品説明 %>
