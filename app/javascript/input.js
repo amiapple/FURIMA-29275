@@ -1,7 +1,7 @@
 function input() {
  
 // ①フォームに文字が入ったらイベントが発火する
-value_input=document.getElementById("item-price")
+const value_input=document.getElementById("item-price")
     value_input.addEventListener("input", () => {    
 // ②入力した値（数字）を取得する
 const courseLists = document.getElementById("item-price").value;
@@ -17,8 +17,6 @@ p1.textContent=commission
 
 const p2 = document.getElementById("profit");
 p2.textContent=profit
-
-
     });
 
 }
