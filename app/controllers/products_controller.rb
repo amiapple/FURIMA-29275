@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  #商品一覧機能実装に使用
+  #skip_before_action :authenticate_user!, only: :index
 
-  def index
-    @products = Product.order('created_at DESC')
-  end
+  #def index
+    #@products = Product.order('created_at DESC')
+  #end
 
   def new
     @product = Product.new
