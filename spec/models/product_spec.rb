@@ -60,7 +60,7 @@ before do
       expect(@product.errors.full_messages).to include("condition can't be blank")
     end
 
-    t "カテゴリーの情報が必須であること" do
+    it "カテゴリーの情報が必須であること" do
       @product.category_id = ""
       @user.valid?
       expect(@product.errors.full_messages).to include("category can't be blank")
