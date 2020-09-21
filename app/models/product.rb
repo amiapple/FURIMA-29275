@@ -25,3 +25,4 @@ class Product < ApplicationRecord
   validates :price, numericality:  {less_than_or_equal_to: 9999999}
   validates :introduction, presence: true, length: {maximum: 1000}
   end
+end
