@@ -6,6 +6,12 @@ before do
 
   describe '商品出品機能' do
 
+    it "すべての情報が正しいフォーマットで入力されていれば出品登録できる" do
+      product = build(:product, name: "ソファ", introduction: "ソファです", price: "10000", shipping_area_id:"2", preparation_day_id:"2", catogory_id:"2", postage_id:"2",condition_id:"2")
+      product.valid?
+      expect(product).to be_valid
+    end
+
     it "商品名が必須であること" do
       @product.name = ""
       @user.valid?
@@ -35,34 +41,35 @@ before do
       item.valid?
       expect(item.errors[:price]).to include("は10000000以下の値にしてください")
     end
-
-    it "発送元の地域についての情報が必須であること" do
-      @product.shipping_area_id = ""
+  
+    it "発送元地域が---を示すid値だと出品登録できない" do
+      @product.shipping_area_id= "---"
       @user.valid?
-      expect(@product.errors.full_messages).to include("shipping can't be blank")
-     end
-
-     it "発送までの日数についての情報が必須であること" do
-      @product.preparation_day_id = ""
-      @user.valid?
-      expect(@product.errors.full_messages).to include("shipping can't be blank")
+      expect(@product.errors.full_messages).to include("shipping_area can't be blank")
     end
 
-    it "配送料の負担についての情報が必須であること" do
-      @product.postage_id = ""
+    it "発送までの日数が---を示すid値だと出品登録できない" do
+      @product.preparation_day= "---"
+      @user.valid?
+      expect(@product.errors.full_messages).to include("preparation_day can't be blank")
+    end
+
+    it "配送料負担が---を示すid値だと出品登録できない" do
+      @product.spostage_id= "---"
       @user.valid?
       expect(@product.errors.full_messages).to include("postage can't be blank")
     end
 
-    it "商品の状態についての情報が必須であること" do
-      @product.condition_id = ""
+    it "商品状態が---を示すid値だと出品登録できない" do
+      @product.condition_id= "---"
       @user.valid?
       expect(@product.errors.full_messages).to include("condition can't be blank")
     end
 
-    it "カテゴリーの情報が必須であること" do
-      @product.category_id = ""
+    it "カテゴリーが---を示すid値だと出品登録できない" do
+      @product.category_id= "---"
       @user.valid?
       expect(@product.errors.full_messages).to include("category can't be blank")
     end
+
   end
