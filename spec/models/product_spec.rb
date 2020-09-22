@@ -29,43 +29,43 @@ RSpec.describe Product, type: :model do
     end
 
     it "価格が299以下であれば登録できないこと " do
-      @product.price = "100"
+      @product.price = 100
       @product.valid?
       expect(@product.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
 
     it "価格が10000000以上であれば登録できないこと " do
-      @product.price = "20000000"
+      @product.price = 20000000
       @product.valid?
       expect(@product.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
   
     it "発送元地域が---を示すid値だと出品登録できない" do
-      @product.shipping_area_id= "1"
+      @product.shipping_area_id= 1
       @product.valid?
       expect(@product.errors.full_messages).to include("Shipping area is not a number")
     end
 
     it "発送までの日数が---を示すid値だと出品登録できない" do
-      @product.preparation_day_id= "1"
+      @product.preparation_day_id= 1
       @product.valid?
       expect(@product.errors.full_messages).to include("Preparation day is not a number")
     end
 
     it "配送料負担が---を示すid値だと出品登録できない" do
-      @product.postage_id= "1"
+      @product.postage_id= 1
       @product.valid?
       expect(@product.errors.full_messages).to include("Postage is not a number")
     end
 
     it "商品状態が---を示すid値だと出品登録できない" do
-      @product.condition_id= "1"
+      @product.condition_id= 1
       @product.valid?
       expect(@product.errors.full_messages).to include("Condition is not a number")
     end
 
     it "カテゴリーが---を示すid値だと出品登録できない" do
-      @product.category_id= "1"
+      @product.category_id= 1
       @product.valid?
       expect(@product.errors.full_messages).to include("Category is not a number")
     end
