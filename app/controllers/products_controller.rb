@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  #商品一覧機能実装に使用
+  
   before_action :authenticate_user!, except: :index
 
   def index
