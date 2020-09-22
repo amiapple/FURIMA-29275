@@ -69,5 +69,10 @@ RSpec.describe Product, type: :model do
       @product.valid?
       expect(@product.errors.full_messages).to include("Category is not a number")
     end
+
+    it "画像がないと出品登録できない" do
+      @product.image = ""
+      expect(@product).to be_valid
+    end
   end
 end
