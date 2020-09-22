@@ -41,31 +41,31 @@ RSpec.describe Product, type: :model do
     end
   
     it "発送元地域が---を示すid値だと出品登録できない" do
-      @product.shipping_area_id= "---"
+      @product.shipping_area_id= "1"
       @product.valid?
       expect(@product.errors.full_messages).to include("Shipping area is not a number")
     end
 
     it "発送までの日数が---を示すid値だと出品登録できない" do
-      @product.preparation_day_id= "---"
+      @product.preparation_day_id= "1"
       @product.valid?
       expect(@product.errors.full_messages).to include("Preparation day is not a number")
     end
 
     it "配送料負担が---を示すid値だと出品登録できない" do
-      @product.postage_id= "---"
+      @product.postage_id= "1"
       @product.valid?
       expect(@product.errors.full_messages).to include("Postage is not a number")
     end
 
     it "商品状態が---を示すid値だと出品登録できない" do
-      @product.condition_id= "---"
+      @product.condition_id= "1"
       @product.valid?
       expect(@product.errors.full_messages).to include("Condition is not a number")
     end
 
     it "カテゴリーが---を示すid値だと出品登録できない" do
-      @product.category_id= "---"
+      @product.category_id= "1"
       @product.valid?
       expect(@product.errors.full_messages).to include("Category is not a number")
     end
