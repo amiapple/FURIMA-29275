@@ -51,7 +51,6 @@ Things you may want to cover:
 | name         | string | null: false |
 | price        | integer | null: false |
 | category     | integer | null: false |
-| bland        | integer | null: false |
 | introduction | text | null: false |
 | condition    | integer | null: false |
 | postage      | integer | null: false |
