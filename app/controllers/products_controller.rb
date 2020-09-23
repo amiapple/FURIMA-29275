@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product定義
+    @product = Product.find(params[:id])
   end
 
   private
