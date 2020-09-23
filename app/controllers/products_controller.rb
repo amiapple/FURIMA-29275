@@ -19,8 +19,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  #def edit
+    #@product = Product.find(params[:id])
+  #end
 
   def update
     if current_user.update(user_params)
@@ -28,6 +29,10 @@ class ProductsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   private
