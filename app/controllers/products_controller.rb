@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product定義
   end
 
   private
