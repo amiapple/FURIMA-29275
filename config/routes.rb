@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # localhost::3000にアクセスした時にitems#indexが作動するように設定
-  #root to: "products#index"
+  root to: "products#index"
   #resources :users
   resources :products
-  root to: 'orders#index'
+  #root to: 'orders#index'
   resources :orders, only:[:create]
+  resources :products_purchases
   # itemsコントローラーを作成し、indexアクションを定義
   
   # localhost::3000にアクセスした時にしっかりとトップページが開くか確認
