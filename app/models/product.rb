@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   end
 
   belongs_to :user, foreign_key: 'user_id', optional: true
-  has_many :comments, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   has_one :product_purchase
   has_one_attached :image
   with_options presence: true do
