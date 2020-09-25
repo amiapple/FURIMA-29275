@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
 
-  #def index
-  #end
+  def index
+  end
 
-  #def create
-  #end
+  def create
+   binding.pry
+  end
 
 end
