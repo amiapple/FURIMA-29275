@@ -3,14 +3,15 @@ class ProductPurchase < ApplicationRecord
   belongs_to :products
   has_one :product_purchase
 
-  validates :number, presence: true
-  validates :exp_month, presence: true
-  validates :exp_year, presence: true
-  validates :cvc, presence: true
-  validates :postal_code, presence: true
-  validates :prefecture, presence: true
-  validates :city, presence: true
-  validates :addresses, presence: true
-  validates :building, presence: true
-  validates :phone_number, presence: true
+  with_options presence: true do
+  validates :number, numericality: { with:/\A[0-9]+\z/}, length: { is: 16 }
+  validates :exp_month, numericality: { with:/\A[0-9]+\z/, greater_than_or_equal_to: 1, less_than_or_equal_to: 2}
+  validates :exp_year, numericality: { with:/\A[0-9]+\z/}, length: { is: 2 }
+  validates :cvc, numericality: { with:/\A[0-9]+\z/}, length: { is: 3 }
+  validates :postal_code,numericality: { /\A\d{3}[-]\d{4}\z/}
+  validates :prefecture
+  validates :city
+  validates :addresses
+  validates :phone_number, numericality: { with:/\A[0-9]+\z/, less_than_or_equal_to: 11}
+  end
 end
