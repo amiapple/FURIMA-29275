@@ -82,7 +82,7 @@ Things you may want to cover:
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | user_id  | integer | null: false,foreign_key:true |
-| item_id  | integer | null: false,foreign_key:true |
+| product_id  | integer | null: false,foreign_key:true |
 
 ### Association
 
@@ -94,7 +94,7 @@ Things you may want to cover:
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| product_purchases | references | null: false,foreign_key:true |
+| product_purchase_id | references | null: false,foreign_key:true |
 | postal_code | string | null: false |
 | shipping_area_id | integer | null: false |
 | city | string | null: false |
