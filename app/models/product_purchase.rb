@@ -1,6 +1,6 @@
 class ProductPurchase < ApplicationRecord
   belongs_to :user
-  belongs_to :products
+  belongs_to :product
   has_one :product_purchases
 
   

@@ -1,7 +1,7 @@
 class ProductPurchasesSendingDestination
 
   include ActiveModel::Model
-  attr_accessor :user_id, :product_id, :product_purchases, :postal_code, :shipping_area_id, :city, :addresses, :building, :phone_number, :token
+  attr_accessor :user_id, :product_id, :product_purchase_id, :postal_code, :shipping_area_id, :city, :addresses, :building, :phone_number, :token
 
   #sending_destinationsのバリデーション 
   with_options presence: true do
@@ -17,6 +17,6 @@ class ProductPurchasesSendingDestination
     #product_purchasesの情報を保存し、product_purchasesという変数に入れる
     product_purchases = ProductPurchase.create(user_id: user_id, product_id: product_id)
     #sending_destinationsの情報を保存
-    SendingDestination.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, addresses: addresses, phone_number: phone_number, user_id: user.id, product_id: product_id)
+    SendingDestination.create(product_purchase_id: product_purchases.id, postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, addresses: addresses, building: building, phone_number: phone_number)
   end
 end
