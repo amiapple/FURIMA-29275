@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   #resources :users
   resources :products do
     resources :product_purchases
-    resources :sending_destinations
   end
   #root to: 'orders#index'
   resources :orders, only:[:create]

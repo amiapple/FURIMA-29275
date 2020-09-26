@@ -8,14 +8,14 @@ form.addEventListener("submit", (e) => {
   const formData = new FormData(formResult);
 
   const card = {
-    number: formData.get("product[number]"),
-    cvc: formData.get("product[cvc]"),
-    exp_month: formData.get("product[exp_month]"),
-    exp_year: `20${formData.get("product[exp_year]")}`,
+    number: formData.get("product_purchases_sending_destination[number]"),
+    cvc: formData.get("product_purchases_sending_destination[cvc]"),
+    exp_month: formData.get("product_purchases_sending_destination[exp_month]"),
+    exp_year: `20${formData.get("product_purchases_sending_destination[exp_year]")}`,
   };
  
   Payjp.createToken(card, (status, response) => {
-    console.log(response)
+    console.log(card)
     if (status == 200) {
       const token = response.id;
       const renderDom = document.getElementById("charge-form");
