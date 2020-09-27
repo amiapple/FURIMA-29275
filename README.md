@@ -101,6 +101,7 @@ Things you may want to cover:
 | addresses | string | null: false |
 | building | string |  |
 | phone_number | string | null: false |
+| token | string | null: false |
 
 ### Association
 
