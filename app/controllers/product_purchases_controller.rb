@@ -1,5 +1,8 @@
 class ProductPurchasesController < ApplicationController
   before_action :authenticate_user!
+  before_action :move_to_top, only: [:index]
+  before_action :move_to_redirect, only: [:index]
+
   def index
     @product_purchases = ProductPurchasesSendingDestination.new
     @products = Product.find(params[:product_id])
@@ -32,4 +35,17 @@ class ProductPurchasesController < ApplicationController
     )
   end
 
+  def move_to_top
+    @products = Product.find(params[:product_id])
+    if user_signed_in? && current_user.id == @products.user_id
+    redirect_to root_path
+    end
+  end
+
+  def move_to_redirect
+    @product = Product.find(params[:product_id])
+    if @product.product_purchase.present?
+    redirect_to root_path
+    end
+  end
 end
