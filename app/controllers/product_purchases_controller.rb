@@ -11,7 +11,6 @@ class ProductPurchasesController < ApplicationController
   def create
     @products = Product.find(params[:product_id])
     @product_purchases = ProductPurchasesSendingDestination.new(product_purchases_params)
-    binding.pry
     if @product_purchases.valid?
       pay_item
       @product_purchases.save
