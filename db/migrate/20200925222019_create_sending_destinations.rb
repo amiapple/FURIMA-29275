@@ -8,7 +8,6 @@ class CreateSendingDestinations < ActiveRecord::Migration[6.0]
       t.string  :addresses,           null: false
       t.string  :building,            null: false
       t.string  :phone_number,        null: false
-      t.string  :token,               null: false
       t.timestamps
     end
   end

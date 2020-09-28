@@ -64,19 +64,6 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :product_purchases
 
-## comments テーブル
-
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| comment   | string | null: false |
-| user    | string | null: false |
-| item    | string | null: false |
-
-### Association
-
-- belongs_to :user
-- belongs_to :products
-
 ## product_purchases テーブル
 
 | Column   | Type   | Options     |
@@ -101,7 +88,6 @@ Things you may want to cover:
 | addresses | string | null: false |
 | building | string |  |
 | phone_number | string | null: false |
-| token | string | null: false |
 
 ### Association
 
