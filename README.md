@@ -41,7 +41,6 @@ Things you may want to cover:
 ### Association
 
 - has_many :products
-- has_many :comments
 - has_many :product_purchases
 
 ## products テーブル
@@ -60,48 +59,34 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :comments, dependent: :destroy
 - belongs_to :user
-- has_one :product_purchase
-
-## comments テーブル
-
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| comment   | string | null: false |
-| user    | string | null: false |
-| item    | string | null: false |
-
-### Association
-
-- belongs_to :user
-- belongs_to :product
+- has_one :product_purchases
 
 ## product_purchases テーブル
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | user_id  | integer | null: false,foreign_key:true |
-| item_id  | integer | null: false,foreign_key:true |
+| product_id  | integer | null: false,foreign_key:true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :product
-- has_one :product_purchase
+- belongs_to :products
+- has_one :product_purchases
 
 ## sending_destinations テーブル
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| product_purchase | references | null: false,foreign_key:true |
-| post_code | string | null: false |
-| prefecture_code | integer | null: false |
+| product_purchase_id | references | null: false,foreign_key:true |
+| postal_code | string | null: false |
+| shipping_area_id | integer | null: false |
 | city | string | null: false |
-| house_number | string | null: false |
-| building_name | string |  |
+| addresses | string | null: false |
+| building | string |  |
 | phone_number | string | null: false |
 
 ### Association
 
-- belongs_to :product_purchase
+- belongs_to :product_purchases

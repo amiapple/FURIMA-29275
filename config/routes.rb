@@ -5,10 +5,9 @@ Rails.application.routes.draw do
   # localhost::3000にアクセスした時にitems#indexが作動するように設定
   root to: "products#index"
   #resources :users
-  resources :products
-  # itemsコントローラーを作成し、indexアクションを定義
-  
-  # localhost::3000にアクセスした時にしっかりとトップページが開くか確認
-  # 変更内容をコミット&プッシュ
-  # git push heroku masterコマンドをターミナルで実行
+  resources :products do
+    resources :product_purchases
+  end
+  #root to: 'orders#index'
+  resources :orders, only:[:create]
 end
