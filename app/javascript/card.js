@@ -16,6 +16,7 @@ form.addEventListener("submit", (e) => {
   };
   Payjp.createToken(card, (status, response) => {
     console.log(card)
+    console.log(response.error)
     if (status == 200) {
       const token = response.id;
       const renderDom = document.getElementById("charge-form");
