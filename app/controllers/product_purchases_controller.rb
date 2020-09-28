@@ -11,6 +11,7 @@ class ProductPurchasesController < ApplicationController
   def create
     @products = Product.find(params[:product_id])
     @product_purchases = ProductPurchasesSendingDestination.new(product_purchases_params)
+    binding.pry
     if @product_purchases.valid?
       pay_item
       @product_purchases.save
@@ -27,7 +28,7 @@ class ProductPurchasesController < ApplicationController
 
   def pay_item
     @product = Product.find(params[:product_id])
-    payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @product.price,
       card: product_purchases_params[:token],    # カードトークン

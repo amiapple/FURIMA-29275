@@ -10,7 +10,7 @@ class ProductPurchasesSendingDestination
     validates :shipping_area_id, numericality: { other_than: 1 } 
     validates :city
     validates :addresses
-    validates :phone_number, format: { with:/\A[0-9]+\z/, less_than_or_equal_to: 11}
+    validates :phone_number, format: { with:/\A[0-9]+\z/}, length: {maximum: 11}
     end
 
   def save
