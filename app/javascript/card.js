@@ -15,8 +15,7 @@ form.addEventListener("submit", (e) => {
     exp_year: `20${formData.get("product_purchases_sending_destination[exp_year]")}`,
   };
   Payjp.createToken(card, (status, response) => {
-    console.log(card)
-    console.log(response.error)
+ 
     if (status == 200) {
       const token = response.id;
       const renderDom = document.getElementById("charge-form");
