@@ -41,7 +41,6 @@ Things you may want to cover:
 ### Association
 
 - has_many :products
-- has_many :comments
 - has_many :product_purchases
 
 ## products テーブル
@@ -60,7 +59,6 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :comments, dependent: :destroy
 - belongs_to :user
 - has_one :product_purchases
 
